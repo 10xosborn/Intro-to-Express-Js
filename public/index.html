@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 2 API - Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 40px;
+        }
+        .endpoint {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .method {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9em;
+            margin-right: 10px;
+        }
+        .get {
+            background: #28a745;
+            color: white;
+        }
+        .post {
+            background: #007bff;
+            color: white;
+        }
+        .route {
+            font-family: 'Courier New', monospace;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .description {
+            margin-top: 15px;
+            color: #555;
+            line-height: 1.6;
+        }
+        code {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 6px;
+            display: block;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+        }
+        .test-section {
+            background: #e7f3ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        .test-section h3 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+        footer {
+            background: #2d2d2d;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Week 2 API</h1>
+        </header>
+        
+        <div class="content">
+            <h2>Available Endpoints</h2>
+            
+            <div class="endpoint">
+                <div>
+                    <span class="method get">GET</span>
+                    <span class="route">/</span>
+                </div>
+                <div class="description">
+                    Returns a welcome message.
+                    <code>curl http://localhost:3000/</code>
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <div>
+                    <span class="method post">POST</span>
+                    <span class="route">/user</span>
+                </div>
+                <div class="description">
+                    Create a user greeting. Requires <strong>name</strong> and <strong>email</strong> in request body.
+                    <code>curl -X POST http://localhost:3000/user \
+  -H "Content-Type: application/json" \
+  -d '{"name": "John Doe", "email": "john@example.com"}'</code>
+                </div>
+            </div>
+
+            <div class="endpoint">
+                <div>
+                    <span class="method get">GET</span>
+                    <span class="route">/user/:id</span>
+                </div>
+                <div class="description">
+                    Get user profile by ID. Available IDs: 1, 2, 3
+                    <code>curl http://localhost:3000/user/1</code>
+                </div>
+            </div>
+
+            <div class="test-section">
+                <h3>Testing Instructions</h3>
+                <p><strong>Using curl:</strong> Run the commands shown above in your terminal.</p>
+                <p style="margin-top: 10px;"><strong>Using Postman:</strong> Import the requests and test each endpoint.</p>
+                <p style="margin-top: 10px;"><strong>Error Testing:</strong> Try sending incomplete data or invalid IDs to test error handling.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>Built with Express.js | Week 2 Assignment</p>
+        </footer>
+    </div>
+</body>
+</html>
